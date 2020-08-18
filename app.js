@@ -48,7 +48,7 @@ const question = async () => {
                             message: "Click your enter key to continue",
                     }
                     ]).then(book => {
-                        console.log(book1.getAllBooks())
+                        console.log(chalk.red(book1.getAllBooks()))
                     }).then(()=>{
                         return question()
                     })}else if(answers.Question == '3'){
@@ -59,7 +59,7 @@ const question = async () => {
                                 message: "Enter title of book to delete",
                         }
                         ]).then(book => {
-                            console.log(book1.deleteBook(book[Object.keys(book)[0]]))
+                            console.log(chalk.red(book1.deleteBook(book[Object.keys(book)[0]])))
                         }).then(()=>{
                             return question()
                         })}else if(answers.Question == '4'){
@@ -70,7 +70,7 @@ const question = async () => {
                             message: "Enter title of book to lend",
                     }
                     ]).then(book => {
-                        console.log(book1.lendBook(book[Object.keys(book)[0]]))
+                        console.log(chalk.red(book1.lendBook(book[Object.keys(book)[0]])))
                     }).then(()=>{
                         return question()
                     })}else if(answers.Question == '5'){
@@ -81,7 +81,7 @@ const question = async () => {
                                 message: "Enter title of book",
                         }
                         ]).then(book => {
-                            console.log(book1.returnBook(book[Object.keys(book)[0]]));
+                            console.log(chalk.red(book1.returnBook(book[Object.keys(book)[0]])));
                         }).then(()=>{
                             return question()
                         })}else if(!leaveLoop){
