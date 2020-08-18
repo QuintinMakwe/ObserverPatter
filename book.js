@@ -38,6 +38,9 @@ class Book{
             //delete the book
             this.books.splice(bookIndex, 1);
             //return the new array
+
+            //inform the notify 
+            this.notifyObservers('added')
             return this.books
         }else{
             return "No such book in shelf"
