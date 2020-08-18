@@ -1,5 +1,6 @@
 class RecentlyAddedObserver{
-    constructor(){
+    constructor(name){
+        this.name = name
         this.recentlyAdded = []
     }
 

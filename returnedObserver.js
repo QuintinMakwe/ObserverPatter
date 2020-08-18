@@ -1,5 +1,6 @@
 class RecentlyReturnedObserver{
-    constructor(){
+    constructor(name){
+        this.name = name
         this.recentlyReturned= []
     }
 

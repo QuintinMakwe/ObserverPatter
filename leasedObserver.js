@@ -1,5 +1,6 @@
 class LeasedObserver{
-    constructor(){
+    constructor(name){
+        this.name = name
         this.leased = []
     }
 

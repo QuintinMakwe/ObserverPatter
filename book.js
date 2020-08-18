@@ -19,7 +19,7 @@ class Book{
             this.books.push(bookName.toLowerCase())
 
             //notify observer
-            this.notifyObservers()
+            this.notifyObservers('added')
             return this.books
         }else{
             return "Book already exists"
@@ -53,7 +53,7 @@ class Book{
             this.leased.push(bookName.toLowerCase())
 
             //notify the observers 
-            this.notifyObservers()
+            this.notifyObservers('leased')
             return this.leased
         }else{
             return "No such book in shelf"
@@ -64,11 +64,14 @@ class Book{
         this.observers.push(o)
     }
 
-    notifyObservers(){
+    notifyObservers(observerName){
         for(let i = 0; i < this.observers.length; i++){
             let currentObserver = this.observers[i]
-            currentObserver.update(this);
+            if(currentObserver.name == observerName){
+                currentObserver.update(this);
+            }
         }
+
     }
 
     returnBook(bookName){
@@ -81,6 +84,8 @@ class Book{
         this.leased.splice(bookIndex, 1);
         //add book back to book array 
         this.books.push(bookName);
+
+        this.notifyObservers('returned')
         //return the new array
         return this.books
     }
