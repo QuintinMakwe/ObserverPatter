@@ -1,3 +1,5 @@
+const chalk = require('chalk');
+
 class RecentlyReturnedObserver{
     constructor(name){
         this.name = name
@@ -7,7 +9,7 @@ class RecentlyReturnedObserver{
     update(model){
         const recentlyReturnedBook = model.books[model.books.length - 1]
         this.recentlyReturned.push(recentlyReturnedBook);
-        console.log(`In ascending order, these are the recently returned books: ${this.recentlyReturned.toString()}`);
+        console.log(chalk.blue(`In ascending order, these are the recently returned books: ${this.recentlyReturned.toString()}`));
     }
 }
 

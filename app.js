@@ -1,9 +1,11 @@
-var inquirer = require('inquirer');
+const inquirer = require('inquirer');
+const chalk = require('chalk');
 const {LeasedObserver} = require('./leasedObserver');
 const {RecentlyAddedObserver} = require('./addedObserver');
 const {RecentlyReturnedObserver} = require('./returnedObserver');
 const {Book} = require('./book');
 const book = require('./book');
+const { bgBlue } = require('chalk');
 
 let book1 = new Book();
 const leasedObserver1 = new LeasedObserver('leased')
@@ -34,7 +36,7 @@ const question = async () => {
                             message: "Enter title of book",
                     }
                     ]).then(book => {
-                        console.log(book1.addBook(book[Object.keys(book)[0]]))
+                        console.log(chalk.red(book1.addBook(book[Object.keys(book)[0]])))
                     }).then(()=>{
                         return question()
                     })
